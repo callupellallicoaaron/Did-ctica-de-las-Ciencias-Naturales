@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadro Comparativo - CNEB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        /* Portada Compacta Superior */
+        .cover-header-compact {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #0284c7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-top-row {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .cover-title-main {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #f8fafc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 4px 0;
+        }
+
+        .cover-subtitle-main {
+            font-size: 0.95rem;
+            color: #38bdf8;
+            margin: 0;
+        }
+
+        .cover-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: #f1f5f9;
+            font-weight: 500;
+        }
+
+        .students-inline {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            line-height: 1.4;
+        }
+
+        /* Tabla y Contenido */
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #cbd5e1;
+            background-color: #ffffff;
+        }
+
+        th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 2px solid #0284c7;
+        }
+
+        th:first-child {
+            width: 15%;
+            background-color: #1e293b;
+        }
+
+        th:nth-child(2), th:nth-child(3), th:nth-child(4) {
+            width: 28.33%;
+        }
+
+        td {
+            padding: 12px 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        .criterion-cell {
+            font-weight: bold;
+            color: #0f172a;
+            background-color: #f1f5f9 !important;
+            border-right: 2px solid #cbd5e1;
+        }
+
+        .highlight-row td {
+            background-color: #f0f9ff !important;
+        }
+
+        /* Listas dentro de la tabla */
+        .capacity-list {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .capacity-list li {
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .capacity-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .capacity-title {
+            font-weight: bold;
+            color: #0369a1;
+        }
+
+        .role-title {
+            font-weight: bold;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .footer-note {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #0369a1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <!-- PORTADA COMPACTA SUPERIOR -->
+        <div class="cover-header-compact">
+            <div class="cover-top-row">
+                <h1 class="cover-title-main">Cuadro Comparativo de Competencias y Capacidades (CNEB)</h1>
+                <p class="cover-subtitle-main">Área de Ciencia y Tecnología - Educación Primaria</p>
+            </div>
+
+            <div class="cover-meta-grid">
+                <div class="cover-meta-cell">
+                    <div class="info-label">Curso</div>
+                    <div class="info-value">Didáctica de las Ciencias Naturales</div>
+                </div>
+                <div class="cover-meta-cell">
+                    <div class="info-label">Sección</div>
+                    <div class="info-value">43619</div>
+                </div>
+                <div class="cover-meta-cell">
+                    <div class="info-label">Estudiantes</div>
+                    <div class="students-inline">
+                        • CALLUPE LLALLICO AARON SIXTO<br>
+                        • ESPINOZA SOTO ROCIO GRACE<br>
+                        • INGA MORENO ESTEFANY YERALDIN<br>
+                        • SANCHEZ VERASTEGUI RUTH ESTER
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLA COMPARATIVA -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criterio de Análisis</th>
+                        <th>Competencia 1: Indaga mediante métodos científicos para construir sus conocimientos</th>
+                        <th>Competencia 2: Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo</th>
+                        <th>Competencia 3: Diseña y construye soluciones tecnológicas para resolver problemas de su entorno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="criterion-cell">Definición</td>
+                        <td>El estudiante es capaz de construir su conocimiento acerca del funcionamiento y estructura
+del mundo natural y artificial que lo rodea, a través de procedimientos propios de la ciencia,
+reflexionando acerca de lo que sabe y de cómo ha llegado a saberlo poniendo en juego actitudes
+como la curiosidad, asombro, escepticismo, entre otras. </td>
+                        <td>El estudiante es capaz de comprender conocimientos científicos relacionados a hechos
+o fenómenos naturales, sus causas y relaciones con otros fenómenos, construyendo
+representaciones del mundo natural y artificial. Esta representación del mundo le permite
+evaluar situaciones donde la aplicación de la ciencia y la tecnología se encuentran en debate,
+para construir argumentos que lo llevan a participar, deliberar y tomar decisiones en asuntos
+personales y públicos, mejorando su calidad de vida, así como conservar el ambiente. </td>
+                        <td>El estudiante es capaz de construir objetos, procesos o sistemas tecnológicos, basándose en
+conocimientos científicos, tecnológicos y de diversas prácticas locales, para dar respuesta a
+problemas del contexto, ligados a las necesidades sociales, poniendo en juego la creatividad y
+perseverancia. 
+</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criterion-cell">Capacidades que la integran (CNEB)</td>
+                        <td>
+                            <ol class="capacity-list">
+                                <li><span class="capacity-title">Problematiza situaciones para hacer indagación:</span> Formula preguntas sobre la coloración oscura de la manzana y plantea una hipótesis.</li>
+                                <li><span class="capacity-title">Diseña estrategias para hacer indagación:</span> Propone un plan para exponer trozos de manzana a diferentes sustancias (limón, agua, aire).</li>
+                                <li><span class="capacity-title">Genera y registra datos e información:</span> Mide el tiempo y registra en tablas las variaciones de color de los trozos de manzana.</li>
+                                <li><span class="capacity-title">Analiza datos e información:</span> Compara los resultados entre la manzana con limón y al aire libre para validar su hipótesis.</li>
+                                <li><span class="capacity-title">Evalúa y comunica el proceso y resultados de su indagación:</span> Explica a sus compañeros sus conclusiones sobre la oxidación.</li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ol class="capacity-list">
+                                <li><span class="capacity-title">Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo:</span> Explica la relación entre la contaminación, el efecto invernadero y el incremento de temperatura en su comunidad.</li>
+                                <li><span class="capacity-title">Evalúa las implicancias del saber y del quehacer científico y tecnológico:</span> Argumenta la importancia de reducir el uso de plásticos y tomar acciones para cuidar el clima local.</li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ol class="capacity-list">
+                                <li><span class="capacity-title">Determina una alternativa de solución tecnológica:</span> Propone crear un sistema de riego por goteo casero usando botellas plásticas recicladas.</li>
+                                <li><span class="capacity-title">Diseña la alternativa de solución tecnológica:</span> Representa en un gráfico/boceto las partes de su sistema de riego por goteo.</li>
+                                <li><span class="capacity-title">Implementa y valida la alternativa de solución tecnológica:</span> Construye el prototipo perforando las tapas de plástico y ajusta el goteo.</li>
+                                <li><span class="capacity-title">Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica:</span> Comprueba si la planta se mantiene húmeda el fin de semana y comunica sus mejoras.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="criterion-cell">Situación Problemática (Contexto)</td>
+                        <td>Los estudiantes observan que los trozos de manzana cortados para la lonchera escolar se tornan de color marrón (se oxidan) rápidamente, y surgen dudas sobre qué factores aceleran o evitan este cambio.</td>
+                        <td>Los estudiantes identifican un aumento inusual de temperaturas en su comunidad y la acumulación de residuos, preguntándose por qué ocurren estos cambios climáticos y cómo afectan a los seres vivos locales.</td>
+                        <td>Los estudiantes notan que las plantas del huerto escolar se secan durante los fines de semana por falta de riego constante y la escasez de agua en la institución educativa.</td>
+                    </tr>
+                    <tr>
+                        <td class="criterion-cell">Rol del estudiante de primaria</td>
+                        <td>
+                            <span class="role-title">Investigador activo:</span>
+                            Plantea preguntas sobre la oxidación de la manzana, propone procedimientos, experimenta, recolecta y registra información, y contrasta sus hallazgos.
+                        </td>
+                        <td>
+                            <span class="role-title">Argumentador informado:</span>
+                            Utiliza conceptos científicos para explicar el calentamiento global y sus efectos cotidianos, y reflexiona críticamente sobre el impacto ambiental.
+                        </td>
+                        <td>
+                            <span class="role-title">Diseñador y constructor:</span>
+                            Identifica la falta de riego en el huerto, crea bocetos, manipula herramientas/materiales reciclables y prueba el prototipo de riego por goteo.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="criterion-cell">Ejemplo de evidencia / producto real</td>
+                        <td>Informe o cuaderno de campo sobre el registro y análisis del proceso de oxidación de trozos de manzana expuestos a distintas condiciones.</td>
+                        <td>Exposición u organizador visual que explique el fenómeno del calentamiento global, sus causas y sus efectos en los ecosistemas locales.</td>
+                        <td>Prototipo funcional de un sistema de riego por goteo elaborado con botellas de plástico recicladas para el huerto escolar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer-note">
+            <strong>©AARON SIXTO CALLUPE LLALLICO</strong> 
+        </div>
+    </div>
+
+</body>
+</html>
