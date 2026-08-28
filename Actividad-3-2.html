@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Interactiva - Pensamiento Científico en Primaria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; }
+            .card-box { break-inside: avoid; border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+        }
+        .step-card {
+            transition: all 0.25s ease-in-out;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen pb-12">
+
+    <header class="bg-slate-900 text-white shadow-lg border-b-4 border-sky-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 bg-sky-500/20 text-sky-400 rounded-2xl border border-sky-400/30">
+                        <i class="fa-solid fa-flask-vial text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-display font-bold tracking-tight text-white">
+                            Ficha Interactiva de Intervención Pedagógica
+                        </h1>
+                        <span class="inline-block px-3 py-1 bg-sky-500/20 text-sky-300 text-xs font-semibold rounded-full uppercase tracking-wider mb-1">
+                            <i class="fa-solid fa-graduation-cap mr-1"></i> Didáctica de las Ciencias Naturales • Sección 43619
+                        </span><br>
+                        <span class="inline-block px-3 py-1 bg-sky-500/20 text-sky-300 text-xs font-semibold rounded-full uppercase tracking-wider mb-1">
+                             • VI Ciclo • Educación Primaria
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 text-xs text-slate-300">
+                    <span class="font-bold text-sky-400 uppercase tracking-wider block mb-1"><i class="fa-solid fa-user-graduate mr-1"></i> Estudiantes - Grupo 9</span>
+                    <ul class="space-y-0.5 text-slate-200">
+                        <li>• CALLUPE LLALLICO AARON SIXTO</li>
+                        <li>• ESPINOZA SOTO ROCIO GRACE</li>
+                        <li>• INGA MORENO ESTEFANY YERALDIN</li>
+                        <li>• SANCHEZ VERASTEGUI RUTH ESTER</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+
+        <div id="content-caso-b" class="case-content space-y-6">
+            <div class="bg-gradient-to-r from-sky-800 to-blue-700 text-white p-6 sm:p-8 rounded-3xl shadow-lg relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-15 text-white">
+                    <i class="fa-solid fa-wind text-9xl"></i>
+                </div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-500/30 backdrop-blur-md rounded-full text-sky-100 text-xs font-semibold uppercase tracking-wider mb-3">
+                        <i class="fa-solid fa-sync"></i> Causalidad Invertida & Animismo
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-bold flex items-center gap-3">
+                        <i class="fa-solid fa-fan text-sky-300"></i> Caso B: El Origen del Viento
+                    </h2>
+                    <blockquote class="mt-3 p-4 bg-sky-950/40 border-l-4 border-sky-400 rounded-r-2xl italic text-sky-100 text-lg flex items-center gap-3">
+                        <i class="fa-solid fa-quote-left text-sky-400 text-2xl shrink-0"></i>
+                        <span>"El viento se produce porque los árboles mueven sus hojas como un ventilador."</span>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm step-card card-box">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 font-display font-bold flex items-center justify-center text-lg shrink-0">1</div>
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-magnifying-glass"></i> Paso 1 • Análisis Didáctico
+                            </span>
+                            <h3 class="text-lg font-display font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                Identificación del Fenómeno <i class="fa-solid fa-tree text-xs text-emerald-500"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <strong>Concepción Implícita:</strong> Causalidad invertida. El niño observa que cuando hay viento las hojas se agitan, deduciendo que las hojas son los motores que fabrican el viento.
+                            </p>
+                            <div class="mt-3 p-3 bg-sky-50 rounded-xl border border-sky-100 text-xs text-sky-900 space-y-1">
+                                <p class="font-semibold text-sky-800"><i class="fa-solid fa-book-bookmark mr-1"></i> Concepto Científico Escolar:</p>
+                                <p><strong>Dinámica de Masas de Aire en Movimiento.</strong> El viento es causado por diferencias de temperatura y presión atmosférica provocadas por el Sol. Las hojas son elementos pasivos empujados por el viento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm step-card card-box">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-display font-bold flex items-center justify-center text-lg shrink-0">2</div>
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-bolt"></i> Paso 2 • Conflicto Cognitivo
+                            </span>
+                            <h3 class="text-lg font-display font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                Pregunta Investigable <i class="fa-solid fa-building-columns text-xs text-slate-400"></i>
+                            </h3>
+                            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200/70 text-amber-950 font-medium text-sm sm:text-base italic flex items-start gap-3">
+                                <i class="fa-solid fa-question-circle text-amber-500 text-xl shrink-0 mt-0.5"></i>
+                                <span>"Si caminamos hacia el centro de una cancha de cemento grande donde no hay ningún árbol cerca y sentimos que el viento sopla fuerte, ¿de dónde salió ese viento si allí no hay hojas moviéndose?"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm step-card card-box">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 font-display font-bold flex items-center justify-center text-lg shrink-0">3</div>
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-vial"></i> Paso 3 • Indagación Práctica
+                            </span>
+                            <h3 class="text-lg font-display font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                Experiencia e Indagación en Aula <i class="fa-solid fa-paper-plane text-xs text-sky-500"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 mb-3"><strong>Prueba de Molinetes e Inversión de Fuerza:</strong></p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-box text-sky-500 mt-1"></i>
+                                    <span><strong>Materiales del entorno:</strong> Molinetes de papel, tiras de lana/papel cometa, cartón grueso (abanico) y ramas de plantas en macetas.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-person-running text-sky-500 mt-1"></i>
+                                    <span><strong>Acción 1:</strong> Llevar cintas de papel a un espacio abierto sin árboles para comprobar que el viento desplaza los objetos sin vegetación.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-hands text-sky-500 mt-1"></i>
+                                    <span><strong>Acción 2:</strong> Abanicar fuertemente una planta estática con un cartón para observar que la hoja se mueve solo después de que el aire la empuja.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm step-card card-box">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 font-display font-bold flex items-center justify-center text-lg shrink-0">4</div>
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-purple-600 uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-comments"></i> Paso 4 • Metacognición
+                            </span>
+                            <h3 class="text-lg font-display font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                Preguntas de Mediación Pedagógica <i class="fa-solid fa-lightbulb text-xs text-amber-500"></i>
+                            </h3>
+                            <div class="space-y-2 mt-2">
+                                <div class="p-3 bg-purple-50 rounded-xl border border-purple-100 text-xs sm:text-sm text-purple-900 flex items-start gap-2">
+                                    <i class="fa-solid fa-comment-dots text-purple-500 mt-1"></i>
+                                    <span>"Cuando abanicamos la planta con el cartón, ¿quién empezó a moverse primero: el aire que hicimos con el cartón o las hojas de la maceta?"</span>
+                                </div>
+                                <div class="p-3 bg-purple-50 rounded-xl border border-purple-100 text-xs sm:text-sm text-purple-900 flex items-start gap-2">
+                                    <i class="fa-solid fa-comment-dots text-purple-500 mt-1"></i>
+                                    <span>"¿El viento necesitó de los árboles para volar el papel cometa en la cancha de fútbol?"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm overflow-hidden">
+                <div class="flex items-center gap-2 text-sky-700 font-bold font-display text-base mb-4">
+                    <i class="fa-solid fa-list-check text-sky-500"></i>
+                    <span>Secuencia Gráfica Integrada: Demostración del Aire en Movimiento</span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-sky-50/60 p-4 rounded-xl border border-sky-100 text-center flex flex-col items-center">
+                        <span class="px-2.5 py-1 bg-sky-600 text-white font-bold rounded-full text-xs mb-3">Fase 1</span>
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center border border-sky-200 shadow-inner mb-3 text-sky-600 text-3xl">
+                            <i class="fa-solid fa-fan"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">Cancha sin Árboles</h4>
+                        <p class="text-xs text-slate-600">Probar cintas de papel en una superficie limpia sin plantas para notar el viento.</p>
+                    </div>
+
+                    <div class="bg-sky-50/60 p-4 rounded-xl border border-sky-100 text-center flex flex-col items-center">
+                        <span class="px-2.5 py-1 bg-sky-600 text-white font-bold rounded-full text-xs mb-3">Fase 2</span>
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center border border-sky-200 shadow-inner mb-3 text-sky-600 text-3xl">
+                            <i class="fa-solid fa-hand-holding-hand"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">Abanicado Manual</h4>
+                        <p class="text-xs text-slate-600">Generar brisa con un cartón sobre una planta totalmente quieta en maceta.</p>
+                    </div>
+
+                    <div class="bg-sky-50/60 p-4 rounded-xl border border-sky-100 text-center flex flex-col items-center">
+                        <span class="px-2.5 py-1 bg-sky-600 text-white font-bold rounded-full text-xs mb-3">Fase 3</span>
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center border border-sky-200 shadow-inner mb-3 text-sky-600 text-3xl">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">Inversión Causal</h4>
+                        <p class="text-xs text-slate-600">Confirmar que las hojas reaccionan al viento y nunca lo originan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm overflow-hidden flex justify-center">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgiRQ-M3lzRDslN2m7ZMBNjO9seIPCMm1ri3IhZlo2dljAyjWauqdKRmnkfLyAq3nxsrt8hqxr8bEf_WkqREqa4bD_A-PL_Q4WJ8c5hwoHE3Y0P-5ZAZ1hY1sm69wDpMYeV1bB1T_dZGg_wTmS7IfdKRaOOlo1SUNAeT6Nzm22dmVnQzGcHTHOAFg23jRg" alt="Ilustración del Caso B" class="max-h-96 w-auto object-contain rounded-xl">
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center text-xs text-slate-500">
+        <p class="flex items-center justify-center gap-2">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Universidad Tecnológica del Perú</span>
+        </p>
+    </footer>
+
+</body>
+</html>
