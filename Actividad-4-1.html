@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didáctica de las Ciencias Naturales - Actividad Sesión 04</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #10b981;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Group Card */
+        .group-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 0 auto 2rem auto;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.4rem;
+        }
+
+        .group-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .group-members li {
+            font-size: 0.9rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .group-members li i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* Section 1: Casos Interactivos */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #0f172a;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .cases-nav {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .case-btn {
+            flex: 1;
+            min-width: 180px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .case-btn i {
+            font-size: 1.2rem;
+        }
+
+        .case-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .case-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .case-btn.active i {
+            color: white;
+        }
+
+        .case-content {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .case-content.active {
+            display: block;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tag-tradicional { background: #fee2e2; color: #991b1b; }
+        .tag-digital { background: #fef3c7; color: #92400e; }
+        .tag-indagacion { background: #d1fae5; color: #065f46; }
+
+        .case-desc {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Section 2: Debate */
+        .debate-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .question-box i {
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .verdict {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid #a7f3d0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .point-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .point-number {
+            background: #e0f2fe;
+            color: var(--primary-dark);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .point-text h4 {
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .point-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .conclusion-box {
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .cases-nav { flex-direction: column; }
+            h1 { font-size: 1.7rem; }
+            body { padding: 1rem 0.5rem; }
+            .group-members { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <span class="badge">Didáctica de las Ciencias Naturales</span>
+            <h1>Análisis de Casos y Debate Pedagógico</h1>
+            
+            
+            <!-- Integrantes del Grupo -->
+            <div class="group-card">
+                <div class="group-header">
+                    <i class="fa-solid fa-users"></i> Estudiantes - Grupo 9
+                </div>
+                <ul class="group-members">
+                    <li><i class="fa-solid fa-user-graduate"></i> CALLUPE LLALLICO AARON SIXTO</li>
+                    <li><i class="fa-solid fa-user-graduate"></i> ESPINOZA SOTO ROCIO GRACE</li>
+                    <li><i class="fa-solid fa-user-graduate"></i> INGA MORENO ESTEFANY YERALDIN</li>
+                    <li><i class="fa-solid fa-user-graduate"></i> SANCHEZ VERASTEGUI RUTH ESTER</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Sección 1: Análisis de Casos -->
+        <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> 1. Análisis de Casos de Aula</h2>
+        
+        <div class="cases-nav">
+            <button class="case-btn active" onclick="showCase(1, this)">
+                <i class="fa-solid fa-book-bookmark"></i>
+                Caso A: Recetario
+            </button>
+            <button class="case-btn" onclick="showCase(2, this)">
+                <i class="fa-solid fa-desktop"></i>
+                Caso B: Simulador
+            </button>
+            <button class="case-btn" onclick="showCase(3, this)">
+                <i class="fa-solid fa-bug"></i>
+                Caso C: Indagación
+            </button>
+        </div>
+
+        <!-- Contenido Caso A -->
+        <div id="case-1" class="case-content active">
+            <span class="case-tag tag-tradicional">Enfoque Tradicional / Memorístico</span>
+            <h3>Caso A: El Experimento de Recetario</h3>
+            <div class="case-desc">
+                "El docente da las instrucciones paso a paso para realizar un experimento y reproducirlo tal cual en casa sin hacer preguntas."
+            </div>
+            <h4>Análisis Pedagógico:</h4>
+            <p>Promueve la repetición y la pasividad del estudiante. Al no permitir formular preguntas, variaciones o promover el razonamiento, limita significativamente el desarrollo del pensamiento crítico, la curiosidad y la indagación autónoma.</p>
+        </div>
+
+        <!-- Contenido Caso B -->
+        <div id="case-2" class="case-content">
+            <span class="case-tag tag-digital">Enfoque Digital Exclusivo</span>
+            <h3>Caso B: El Simulador Virtual Puro</h3>
+            <div class="case-desc">
+                "Los niños solo usan simuladores digitales en la computadora, pero no tocan ningún objeto real de su entorno."
+            </div>
+            <h4>Análisis Pedagógico:</h4>
+            <p>Facilita la representación gráfica, el acceso a modelos abstractos o situaciones de difícil acceso, pero elimina por completo la experiencia multisensorial directa, la manipulación directa y la vivencia empírica indispensable con el entorno real.</p>
+        </div>
+
+        <!-- Contenido Caso C -->
+        <div id="case-3" class="case-content">
+            <span class="case-tag tag-indagacion">Enfoque de Indagación Científica</span>
+            <h3>Caso C: La Indagación del Entorno</h3>
+            <div class="case-desc">
+                "El docente pide a los niños investigar qué insectos viven en sus macetas o jardines y plantear una hipótesis de su función ecológica."
+            </div>
+            <h4>Análisis Pedagógico:</h4>
+            <p>Fomenta el método científico auténtico mediante la formulación de hipótesis, la observación activa, la recolección de datos vivenciales y la reconexión significativa del niño con su entorno ecológico inmediato.</p>
+        </div>
+
+        <!-- Sección 2: Debate -->
+        <h2 class="section-title" style="margin-top: 2rem;"><i class="fa-solid fa-comments"></i> 2. Pregunta de Debate Pedagógico</h2>
+        
+        <div class="debate-card">
+            <div class="question-box">
+                <i class="fa-solid fa-circle-question"></i>
+                <div>
+                    ¿Las tecnologías digitales y los experimentos caseros sencillos pueden reemplazar con éxito la infraestructura de un laboratorio escolar tradicional para lograr la formación integral en primaria?
+                </div>
+            </div>
+
+            <div class="verdict">
+                <i class="fa-solid fa-circle-check"></i>
+                SÍ, pueden reemplazarla exitosamente (Bajo el enfoque de Indagación)
+            </div>
+
+            <ul class="points-list">
+                <li class="point-item">
+                    <div class="point-number">1</div>
+                    <div class="point-text">
+                        <h4>La ciencia en primaria no depende del equipamiento, sino de la actitud científica</h4>
+                        <p>El objetivo central en educación primaria no es formar científicos de laboratorio ni dominar aparatos complejos, sino desarrollar la alfabetización científica, la curiosidad innata, el pensamiento crítico y la toma de decisiones informadas. Un laboratorio costoso no garantiza el aprendizaje si se usa de forma tradicional (como en el Caso A).</p>
+                    </div>
+                </li>
+
+                <li class="point-item">
+                    <div class="point-number">2</div>
+                    <div class="point-text">
+                        <h4>El entorno real y cotidiano es el mejor laboratorio</h4>
+                        <p>Los experimentos caseros y la exploración del entorno (Caso C) resultan más significativos para un niño. Observar seres vivos en el jardín o analizar fenómenos inmediatos conecta la ciencia de forma directa y auténtica con su vida diaria.</p>
+                    </div>
+                </li>
+
+                <li class="point-item">
+                    <div class="point-number">3</div>
+                    <div class="point-text">
+                        <h4>Rol complementario de la tecnología</h4>
+                        <p>Los simuladores y recursos digitales (Caso B) sirven como excelentes complementos para visualizar procesos abstractos o microscópicos, pero no deben sustituir la indagación ni el contacto directo con la realidad.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="conclusion-box">
+                <strong>Conclusión:</strong> La infraestructura física de un laboratorio tradicional es prescindible en el nivel primario; lo indispensable es articular la exploración directa del entorno con el uso guiado de recursos sencillos y herramientas digitales para promover una verdadera indagación.
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para Interactividad -->
+    <script>
+        function showCase(caseNum, btn) {
+            // Ocultar todos los contenidos de casos
+            const contents = document.querySelectorAll('.case-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Quitar clase activa de todos los botones
+            const buttons = document.querySelectorAll('.case-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Mostrar el caso seleccionado y activar el botón
+            document.getElementById(`case-${caseNum}`).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
