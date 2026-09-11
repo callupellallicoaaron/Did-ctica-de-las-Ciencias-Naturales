@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Didáctica - Indagación Científica</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-green: #10b981;
+            --accent-emerald: #059669;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #8b5cf6;
+            --border-color: #e2e8f0;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Titles */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 50px 0 25px;
+            color: var(--text-primary);
+        }
+
+        .section-title i {
+            color: var(--accent-emerald);
+            background: #e6f4ea;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Comparison Section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .comp-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .comp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .comp-card.traditional {
+            border-top: 5px solid var(--accent-rose);
+        }
+
+        .comp-card.inquiry {
+            border-top: 5px solid var(--accent-emerald);
+        }
+
+        .comp-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .comp-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .comp-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .traditional .comp-icon {
+            background: #ffe4e6;
+            color: var(--accent-rose);
+        }
+
+        .inquiry .comp-icon {
+            background: #e6f4ea;
+            color: var(--accent-emerald);
+        }
+
+        .comp-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .interactive-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: #cbd5e1;
+        }
+
+        .card-top {
+            margin-bottom: 20px;
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Color variations for icon boxes */
+        .c-amber .icon-box { background: #fef3c7; color: var(--accent-amber); }
+        .c-blue .icon-box { background: #dbeafe; color: var(--accent-blue); }
+        .c-green .icon-box { background: #d1fae5; color: var(--accent-emerald); }
+        .c-purple .icon-box { background: #ede9fe; color: var(--accent-purple); }
+        .c-rose .icon-box { background: #ffe4e6; color: var(--accent-rose); }
+
+        .card-step {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: var(--accent-emerald);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Accordion / Expandable Content */
+        .expand-btn {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .expand-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+
+        .expandable-content.show {
+            max-height: 300px;
+            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+        }
+
+        .expandable-content p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .expandable-content strong {
+            color: var(--accent-emerald);
+        }
+
+        /* Timeline Summary */
+        .timeline {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            margin-top: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .timeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .t-step {
+            text-align: center;
+            padding: 20px 15px;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .t-step .num {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-emerald);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 12px;
+            font-size: 0.95rem;
+        }
+
+        .t-step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .t-step p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            body { padding: 20px 12px; }
+            .timeline-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="badge">
+                <i class="fa-solid fa-flask"></i> Didáctica de las Ciencias Naturales
+            </div>
+            <h1>Rediseño Didáctico de la Indagación Activa</h1>
+            <p>ESTUDIANTES: Callupe Aaron - Espinoza Rocio - Inga Estefany - Sanchez Ruth</p>
+        </header>
+
+        <!-- Comparación Contextual -->
+        <div class="comparison-grid">
+            <div class="comp-card traditional">
+                <div class="comp-header">
+                    <h3>Situación Tradicional</h3>
+                    <div class="comp-icon"><i class="fa-solid fa-ban"></i></div>
+                </div>
+                <p>La docente muestra una hoja, explica sus partes en la pizarra y pide a los alumnos copiar los datos de una pantalla directamente en sus cuadernos de manera pasiva.</p>
+            </div>
+
+            <div class="comp-card inquiry">
+                <div class="comp-header">
+                    <h3>Propuesta de Indagación</h3>
+                    <div class="comp-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                </div>
+                <p>Los estudiantes asumen el rol de pequeños científicos: observan muestras reales, generan preguntas, experimentan con lupas y construyen sus propios conceptos.</p>
+            </div>
+        </div>
+
+        <!-- Título de la Sección Principal -->
+        <div class="section-title">
+            <i class="fa-solid fa-cubes"></i>
+            <span>Componentes del Trabajo en Equipo</span>
+        </div>
+
+        <!-- Grid de Tarjetas Interactivas -->
+        <div class="cards-grid">
+
+            <!-- Tarjeta 1 -->
+            <div class="interactive-card c-amber">
+                <div class="card-top">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div class="card-step">Paso 01</div>
+                    <div class="card-title">Situación Inicial Detonante</div>
+                    <div class="card-description">
+                        El docente presenta una caja con hojas recolectadas del entorno con diversas formas, texturas, grosores y tonalidades. Se invita a los estudiantes a tocarlas y explorarlas a contraluz con lupas.
+                    </div>
+                </div>
+                <div>
+                    <button class="expand-btn" onclick="toggleAccordion(this)">
+                        <span>Propósito Pedagógico</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <p><strong>Enfoque:</strong> Despierta la curiosidad sensorial. Los niños parten de la percepción directa para generar inquietud y asombro antes de recibir cualquier teoría.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="interactive-card c-blue">
+                <div class="card-top">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+                    <div class="card-step">Paso 02</div>
+                    <div class="card-title">Pregunta Investigable</div>
+                    <div class="card-description">
+                        <em>¿Por qué las hojas tienen distintas formas y «venitas» en su superficie, y qué función cumple cada una para mantener viva a la planta?</em>
+                    </div>
+                </div>
+                <div>
+                    <button class="expand-btn" onclick="toggleAccordion(this)">
+                        <span>Propósito Pedagógico</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <p><strong>Enfoque:</strong> Moviliza la formulación de hipótesis. Transforma una simple lección de anatomía vegetal en un problema real por resolver.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="interactive-card c-green">
+                <div class="card-top">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="card-step">Paso 03</div>
+                    <div class="card-title">Acción Concreta de los Niños</div>
+                    <div class="card-description">
+                        En grupos pequeños, calcan las venaciones usando crayones, agrupan las hojas por sus estructuras, y colocan gotas de agua sobre la superficie para observar si el líquido resbala o se absorbe.
+                    </div>
+                </div>
+                <div>
+                    <button class="expand-btn" onclick="toggleAccordion(this)">
+                        <span>Propósito Pedagógico</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <p><strong>Enfoque:</strong> Experimentación activa. El estudiante manipula materiales, prueba sus ideas y recolecta evidencias tangibles con sus sentidos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="interactive-card c-purple">
+                <div class="card-top">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div class="card-step">Paso 04</div>
+                    <div class="card-title">Intervención del Docente</div>
+                    <div class="card-description">
+                        El docente actúa como guía y mediador. No entrega respuestas inmediatas; acompaña mediante preguntas abiertas: <em>«¿Qué ven en los canales a contraluz?», «¿Por dónde creen que viaja el agua?»</em>
+                    </div>
+                </div>
+                <div>
+                    <button class="expand-btn" onclick="toggleAccordion(this)">
+                        <span>Propósito Pedagógico</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <p><strong>Enfoque:</strong> Mediación socrática. El docente sostiene el andamiaje del aprendizaje sin reemplazar el razonamiento del propio alumno.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="interactive-card c-rose">
+                <div class="card-top">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div class="card-step">Paso 05</div>
+                    <div class="card-title">Evidencia de Aprendizaje</div>
+                    <div class="card-description">
+                        Construcción del <strong>«Cuaderno de campo del pequeño botánico»</strong>, donde dibujan las hojas exploradas, nombran las estructuras descubiertas con sus palabras y registran sus conclusiones.
+                    </div>
+                </div>
+                <div>
+                    <button class="expand-btn" onclick="toggleAccordion(this)">
+                        <span>Propósito Pedagógico</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <p><strong>Enfoque:</strong> Evaluación formativa. Refleja la síntesis conceptual y la capacidad del alumno para explicar los fenómenos basados en sus hallazgos.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Flujo del Proceso -->
+        <div class="section-title">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Flujo del Proceso Didáctico</span>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-steps">
+                <div class="t-step">
+                    <div class="num">1</div>
+                    <h4>Asombro</h4>
+                    <p>Caja misteriosa de hojas</p>
+                </div>
+                <div class="t-step">
+                    <div class="num">2</div>
+                    <h4>Pregunta</h4>
+                    <p>Formulación de hipótesis</p>
+                </div>
+                <div class="t-step">
+                    <div class="num">3</div>
+                    <h4>Exploración</h4>
+                    <p>Lupas, calco y gotas</p>
+                </div>
+                <div class="t-step">
+                    <div class="num">4</div>
+                    <h4>Guiado</h4>
+                    <p>Preguntas mediadoras</p>
+                </div>
+                <div class="t-step">
+                    <div class="num">5</div>
+                    <h4>Síntesis</h4>
+                    <p>Cuaderno de campo</p>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- Script Interactivo -->
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            button.classList.toggle('active');
+            content.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
