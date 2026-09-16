@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño de Actividades Experimentales - Grupo 9</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --radius: 16px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+    }
+
+    /* Header Compacto con Título a la Izquierda e Integrantes a la Derecha */
+    header.header-compact {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px 30px;
+      box-shadow: var(--shadow);
+      margin-top: 10px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-left: 6px solid var(--primary);
+      flex-wrap: wrap;
+    }
+
+    .header-title-box {
+      flex: 1 1 320px;
+    }
+
+    .header-title-box h1 {
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .header-title-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .header-group-box {
+      flex: 0 1 380px;
+      background: #f8fafc;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .header-group-box h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .integrantes-compact {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .integrantes-compact li {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .integrantes-compact li i {
+      color: var(--primary);
+      font-size: 0.75rem;
+    }
+
+    /* Flujo Continuo */
+    .sections-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .badge-secondary {
+      background: #d1fae5;
+      color: #065f46;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .story-box {
+      background: #fffbebfb;
+      border-left: 5px solid var(--accent);
+      padding: 20px;
+      border-radius: 8px;
+      line-height: 1.7;
+      font-size: 1.02rem;
+      color: #451a03;
+    }
+
+    .capacidades-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .capacidad-item {
+      background: #f8fafc;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .capacidad-item i {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin-top: 3px;
+    }
+
+    .preguntas-container {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pregunta-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.2s;
+    }
+
+    .pregunta-card:hover {
+      transform: scale(1.005);
+    }
+
+    .pregunta-card h4 {
+      color: #166534;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+    }
+
+    /* Simulador Interactivo Extra */
+    .simulator {
+      margin-top: 20px;
+      background: #f8fafc;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+    }
+
+    .sim-options {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .sim-btn {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #e2e8f0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .sim-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sim-result {
+      font-weight: 600;
+      color: var(--primary-dark);
+      min-height: 24px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header Compacto con Portada integrada -->
+    <header class="header-compact">
+      <div class="header-title-box">
+        <h1>Didáctica de las Ciencias Naturales</h1>
+        <p>Diseño de Actividad Experimental para Educación Primaria</p>
+      </div>
+
+      <div class="header-group-box">
+        <h2><i class="fa-solid fa-users-gear"></i> Estudiantes - Grupo 9</h2>
+        <ul class="integrantes-compact">
+          <li><i class="fa-solid fa-user-graduate"></i> CALLUPE LLALLICO AARON SIXTO</li>
+          <li><i class="fa-solid fa-user-graduate"></i> ESPINOZA SOTO ROCIO GRACE</li>
+          <li><i class="fa-solid fa-user-graduate"></i> INGA MORENO ESTEFANY YERALDIN</li>
+          <li><i class="fa-solid fa-user-graduate"></i> SANCHEZ VERASTEGUI RUTH ESTER</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Contenido corrido hacia abajo -->
+    <div class="sections-wrapper">
+
+      <!-- Sección 1: Grado y Ciclo -->
+      <section class="section-card">
+        <h3 class="section-title"><i class="fa-solid fa-layer-group"></i> 1. Delimitación del Grado y Ciclo</h3>
+        <p style="margin-bottom: 15px; color: var(--text-muted);">Definición del nivel educativo objetivo para la aplicación del diseño experimental:</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+          <span class="badge"><i class="fa-solid fa-arrows-spin"></i> Ciclo: V Ciclo</span>
+          <span class="badge-secondary"><i class="fa-solid fa-child"></i> Grado: 5.° grado de Educación Primaria</span>
+        </div>
+      </section>
+
+      <!-- Sección 2: Situación Significativa -->
+      <section class="section-card">
+        <h3 class="section-title"><i class="fa-solid fa-apple-whole"></i> 2. Situación Significativa</h3>
+        <div class="story-box">
+          <p><i class="fa-solid fa-quote-left" style="color: var(--accent); font-size: 1.2rem;"></i> Durante el recreo, los estudiantes de 5.º grado notaron que algunas frutas que traen en sus loncheras, como las manzanas picadas o los plátanos, se vuelven de un color oscuro y pierden su textura fresca a los pocos minutos de haber sido cortadas o peladas.</p>
+          <br>
+          <p>Sin embargo, un estudiante mencionó que su mamá le agrega unas gotas de jugo de limón a las frutas picadas para que no cambien de color antes de comerlas. Esta observación genera curiosidad y dudas en los niños: <strong>¿Por qué cambian de color las frutas al ser cortadas? ¿El jugo de limón o de otros líquidos realmente evita que se oscurezcan?</strong></p>
+        </div>
+
+        <!-- Demostración interactiva integrada -->
+        <div class="simulator">
+          <p><strong><i class="fa-solid fa-vial"></i> Demostración rápida de hipótesis:</strong></p>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 3px;">Haz clic en una opción para observar la reacción esperada en la manzana:</p>
+          <div class="sim-options">
+            <button class="sim-btn" onclick="simular('limon')">Jugo de Limón</button>
+            <button class="sim-btn" onclick="simular('agua')">Agua</button>
+            <button class="sim-btn" onclick="simular('aire')">Sin nada (al aire)</button>
+          </div>
+          <div id="simResult" class="sim-result">Haz clic en un botón para previsualizar...</div>
+        </div>
+      </section>
+
+      <!-- Sección 3: Propósito -->
+      <section class="section-card">
+        <h3 class="section-title"><i class="fa-solid fa-lightbulb"></i> 3. Propósito de Aprendizaje</h3>
+        <div style="background: #e0f2fe; border-left: 5px solid var(--primary); padding: 20px; border-radius: 8px;">
+          <p style="font-size: 1.05rem; line-height: 1.6; color: #0c4a6e;">
+            <strong>Hoy indagaremos experimentalmente</strong> cómo influyen diferentes sustancias de uso cotidiano (jugo de limón, agua y vinagre) en el proceso de oscurecimiento (oxidación) de las rodajas de manzana, comparando los cambios observables en su color y apariencia para comprender cómo proteger los alimentos.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sección 4: Competencia y Capacidades -->
+      <section class="section-card">
+        <h3 class="section-title"><i class="fa-solid fa-award"></i> 4. Competencia y Capacidades (CNEB)</h3>
+        <div style="margin-bottom: 20px;">
+          <strong style="color: var(--text-main);">Competencia CNEB:</strong> 
+          <span class="badge" style="display: block; margin-top: 6px; font-size: 0.98rem; width: fit-content;">
+            <i class="fa-solid fa-microscope"></i> Indaga mediante métodos científicos para construir sus conocimientos.
+          </span>
+        </div>
+
+        <p style="font-weight: 600; color: var(--text-main);">Capacidades implicadas:</p>
+        <div class="capacidades-grid">
+          <div class="capacidad-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>1. Problematiza situaciones:</strong> Plantea preguntas sobre el fenómeno de oscurecimiento de las frutas e hipótesis relacionando variables.
+            </div>
+          </div>
+          <div class="capacidad-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>2. Diseña estrategias para hacer indagación:</strong> Propone un procedimiento para probar el efecto de diferentes líquidos en las rodajas de manzana utilizando materiales sencillos y seguros.
+            </div>
+          </div>
+          <div class="capacidad-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>3. Genera y registra datos e información:</strong> Organiza observaciones y datos sobre el cambio de color de la fruta a lo largo del tiempo en una tabla de registro.
+            </div>
+          </div>
+          <div class="capacidad-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>4. Analiza datos e información:</strong> Compara las evidencias observadas para establecer si las sustancias influyeron o no en el ritmo de oscurecimiento.
+            </div>
+          </div>
+          <div class="capacidad-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>5. Evalúa y comunica el proceso y resultados:</strong> Explica sus conclusiones y evalúa la efectividad del método utilizado.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 5: Preguntas Investigables -->
+      <section class="section-card">
+        <h3 class="section-title"><i class="fa-solid fa-flask"></i> 5. Propuestas de Preguntas Investigables</h3>
+        <p style="margin-bottom: 18px; color: var(--text-muted);">Dos propuestas de preguntas formuladas bajo relación causa-efecto, viables para experimentar en el aula:</p>
+
+        <div class="preguntas-container">
+          <div class="pregunta-card">
+            <h4><i class="fa-solid fa-vial-circle-check"></i> Propuesta 1 (Relación tipo de sustancia / color de la fruta)</h4>
+            <p style="font-size: 1.02rem; color: #1e293b;">
+              <em>«¿De qué manera influye el tipo de líquido aplicado (jugo de limón, agua o vinagre) en el cambio de color de las rodajas de manzana expuestas al aire durante 30 minutos?»</em>
+            </p>
+          </div>
+
+          <div class="pregunta-card" style="background: #f0f9ff; border-color: #bae6fd;">
+            <h4 style="color: #0369a1;"><i class="fa-solid fa-vial-circle-check"></i> Propuesta 2 (Relación presencia de aire / conservación)</h4>
+            <p style="font-size: 1.02rem; color: #1e293b;">
+              <em>«¿Cómo influye la presencia de aire en el tiempo que tarda una rodaja de manzana en oscurecerse en comparación con una rodaja sumergida en agua?»</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+  </div>
+
+  <script>
+    // Lógica del mini-simulador
+    function simular(opcion) {
+      const res = document.getElementById('simResult');
+      if(opcion === 'limon') {
+        res.innerHTML = "🍋 <strong>Resultado:</strong> La fruta mantiene su color claro original gracias a la acidez del limón.";
+        res.style.color = "#15803d";
+      } else if(opcion === 'agua') {
+        res.innerHTML = "💧 <strong>Resultado:</strong> El cambio de color es lento, el agua reduce la exposición directa al oxígeno.";
+        res.style.color = "#0369a1";
+      } else if(opcion === 'aire') {
+        res.innerHTML = "🍎 <strong>Resultado:</strong> La rodaja se oscurece rápidamente por contacto directo con el oxígeno.";
+        res.style.color = "#b45309";
+      }
+    }
+  </script>
+</body>
+</html>
