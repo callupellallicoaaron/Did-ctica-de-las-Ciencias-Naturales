@@ -3,50 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semanas de Actividades</title>
+    <title>Semanas de Actividades - Ciencias Naturales</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg: #f8fafc;
+            --primary: #059669;
+            --primary-hover: #047857;
+            --primary-light: #ecfdf5;
+            --accent: #10b981;
+            --bg: #f0fdf4;
             --card-bg: #ffffff;
-            --text: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
+            --text: #064e3b;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #d1fae5;
         }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            background-image: radial-gradient(#10b981 0.75px, transparent 0.75px), radial-gradient(#10b981 0.75px, var(--bg) 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-dark);
             margin: 0;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
+        /* Encabezado / Portada Compacta */
         header {
-            text-align: center;
-            margin-bottom: 2.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-utp {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-title-group {
+            display: flex;
+            flex-direction: column;
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            color: var(--text-muted);
+            font-size: 1.4rem;
+            color: var(--text);
             margin: 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
+        .course-badge {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        /* Información académica organizada horizontalmente */
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+            gap: 0.75rem 1.5rem;
+            font-size: 0.85rem;
+            border-left: 1px solid var(--border);
+            padding-left: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Grid de Semanas */
         .weeks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .week-card {
@@ -54,23 +127,51 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.25rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.2s ease;
         }
 
         .week-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(5, 150, 105, 0.1);
+            border-color: #a7f3d0;
+        }
+
+        .week-card:hover::before {
+            opacity: 1;
         }
 
         .week-title {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 0;
             margin-bottom: 1rem;
             color: var(--primary);
-            border-bottom: 2px solid #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--primary-light);
             padding-bottom: 0.5rem;
+        }
+
+        .week-title::after {
+            content: '🧪';
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
 
         .buttons-group {
@@ -83,20 +184,49 @@
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 0.6rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            padding: 0.65rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
         }
 
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .header-info {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                padding-left: 0;
+                padding-top: 0.75rem;
+                width: 100%;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 480px) {
+            .header-info {
+                grid-template-columns: 1fr;
+            }
+
             .weeks-grid {
                 grid-template-columns: 1fr;
             }
@@ -106,13 +236,36 @@
 <body>
 
     <div class="container">
+        <!-- Portada Compacta con Logo, Datos Académicos y Estilo Biológico -->
         <header>
-            <h1>Didáctica de las Ciencias Naturales</h1>
-            <p>Aaron Sixto Callupe Llallico</p>
+            <div class="header-brand">
+                <img src="https://visualizate.utpxpedition.com/sites/default/files/2020-02/logo-visualizate.png" alt="Logo UTP" class="logo-utp">
+                <div class="header-title-group">
+                    <h1>
+                        Didáctica de las Ciencias Naturales
+                    </h1>
+                    <span class="course-badge">Portafolio Digital</span>
+                </div>
+            </div>
+
+            <div class="header-info">
+                <div class="info-item">
+                    <span class="info-label">Estudiante</span>
+                    <span class="info-value">Aaron Sixto Callupe Llallico</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Docente</span>
+                    <span class="info-value">Jorge Felipe Andrés Saavedra Díaz</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sección</span>
+                    <span class="info-value">43619</span>
+                </div>
+            </div>
         </header>
 
         <main class="weeks-grid" id="weeksContainer">
-            </main>
+        </main>
     </div>
 
     <script>
